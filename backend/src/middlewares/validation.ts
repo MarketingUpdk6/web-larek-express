@@ -15,7 +15,7 @@ export const validateCreateProduct = celebrate({
     }).required(),
     category: Joi.string().required(),
     description: Joi.string(),
-    price: Joi.number().min(0).allow(null).required(),
+    price: Joi.number().min(0).allow(null),
   }),
 });
 
