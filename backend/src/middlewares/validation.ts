@@ -8,14 +8,36 @@ export const validateProductId = celebrate({
 
 export const validateCreateProduct = celebrate({
   [Segments.BODY]: Joi.object().keys({
-    title: Joi.string().min(2).max(30).required(),
+    title: Joi.string()
+      .min(2)
+      .max(30)
+      .required(),
+
     image: Joi.object({
-      fileName: Joi.string().required(),
-      originalName: Joi.string().required(),
+      fileName: Joi.string()
+        .min(1)
+        .max(200)
+        .required(),
+
+      originalName: Joi.string()
+        .min(1)
+        .max(200)
+        .required(),
     }).required(),
-    category: Joi.string().required(),
-    description: Joi.string(),
-    price: Joi.number().min(0).allow(null),
+
+    category: Joi.string()
+      .min(2)
+      .max(60)
+      .required(),
+
+    description: Joi.string()
+      .min(2)
+      .max(1000)
+      .required(),
+
+    price: Joi.number()
+      .min(0)
+      .allow(null),
   }),
 });
 

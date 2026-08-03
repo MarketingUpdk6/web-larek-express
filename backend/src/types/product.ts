@@ -5,6 +5,6 @@ export interface IProduct {
     originalName: string;
   };
   category: string;
-  description?: string;
+  description: string;
   price: number | null;
 }

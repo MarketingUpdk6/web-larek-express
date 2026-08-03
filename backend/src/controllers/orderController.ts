@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { faker } from '@faker-js/faker';
+import { randomUUID } from 'crypto';
 import { IOrder } from '../types/order';
 import Product from '../models/product';
 import BadRequestError from '../errors/bad-request-error';
@@ -41,7 +41,7 @@ const createOrder = async (
     }
 
     return res.status(200).json({
-      id: faker.string.uuid(),
+      id: randomUUID(),
       total,
     });
   } catch (error) {

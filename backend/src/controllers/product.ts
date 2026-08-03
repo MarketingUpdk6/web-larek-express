@@ -50,7 +50,7 @@ const createProduct = async (
   try {
     const product = await Product.create(req.body);
 
-    return res.status(201).json(product);
+    return res.status(200).json(product);
   } catch (error) {
     if (error instanceof MongooseError.ValidationError) {
       return next(

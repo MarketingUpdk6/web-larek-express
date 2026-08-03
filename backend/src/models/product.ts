@@ -13,18 +13,27 @@ const productSchema = new Schema<IProduct>({
     fileName: {
       type: String,
       required: [true, 'Поле "fileName" должно быть заполнено'],
+      minlength: [1, 'Минимальная длина поля "fileName" - 1'],
+      maxlength: [200, 'Максимальная длина поля "fileName" - 200'],
     },
     originalName: {
       type: String,
+      minlength: [1, 'Минимальная длина поля "originalName" - 1'],
+      maxlength: [200, 'Максимальная длина поля "originalName" - 200'],
       required: [true, 'Поле "originalName" должно быть заполнено'],
     },
   },
   category: {
     type: String,
     required: [true, 'Поле "category" должно быть заполнено'],
+    minlength: [2, 'Минимальная длина поля "category" - 2'],
+    maxlength: [60, 'Максимальная длина поля "category" - 60'],
   },
   description: {
     type: String,
+    required: [true, 'Поле "description" должно быть заполнено'],
+    minlength: [2, 'Минимальная длина поля "description" - 2'],
+    maxlength: [1000, 'Максимальная длина поля "description" - 1000'],
   },
   price: {
     type: Number,
